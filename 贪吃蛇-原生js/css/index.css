@@ -1,0 +1,71 @@
+.content{
+    width: 640px;
+    height: 640px;
+    margin: 100px auto;
+    position: relative;
+}
+.btn{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    /* 遮罩层 */
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.btn button{
+    /* 去掉表单元素的默认样式 */
+    border: none;
+    background: none;
+    outline: none;
+    /* 移到按钮光标变成小手的样式 */
+    cursor: pointer;
+    background-size: 100% 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+/* 开始按钮样式 */
+.startBtn button{
+    width: 200px;
+    height: 200px;
+    background-image: url(../image/startGame.png);
+    margin-left: -100px;
+    margin-top: -100px;
+}
+.pauseBtn{
+    /* 暂停按钮默认不显示 */
+    display: none;
+}
+/* 暂停按钮样式 */
+.pauseBtn button{
+    width: 70px;
+    height: 70px;
+    background-image: url(../image/pause.png);
+    margin-left: -35px;
+    margin-top: -35px;
+}
+
+/* snakeWrap样式 */
+#snakeWrap{
+    width: 600px;
+    height: 600px;
+    background: #225675;
+    border: 20px solid #7dd9ff;
+    position: relative;
+}
+
+.snakeHead{
+    background-image: url(../image/snake.png);
+    background-size: cover;
+}
+.snakeBody{
+    background-color: #9ddbb1;
+    border-radius: 50%;
+}
+.food{
+    background-image: url(../image/food.png);
+    background-size: cover;
+}
