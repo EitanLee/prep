@@ -1,4 +1,4 @@
-###Array
+### Array
 
 下面是**数组数据结构**的最简单实现的示例。这称为**一维数组** ，这意味着它只有一个级别，或者它里面没有嵌套任何其他数组。请注意，它包含布尔、字符串和数字，以及其他有效的 JavaScript 数据类型：
 ```
@@ -188,3 +188,146 @@ let nestedArray = [ // top, or first level - the outer most array
   ]
 ];
 ```
+尽管此示例看起来有些复杂，但是在处理大量数据时，这种复杂程度并非闻所未闻，甚至不寻常。但是，我们仍然可以非常容易地使用方括号表示法访问此复杂数组的最深层:
+```
+console.log(nestedArray[2][1][0][0][0]);
+// logs: deepest-est?
+```
+现在我们知道该数据在哪里，如果需要，我们可以将其重置：
+```
+nestedArray[2][1][0][0][0] = 'deeper still';
+
+console.log(nestedArray[2][1][0][0][0]);
+// now logs: deeper still
+```
+
+**将键值对添加到JavaScript对象**
+从最基本的角度讲，对象只是键值对的集合。换句话说，它们是映射到称为属性（键）的唯一标识符的数据（值）。看一个例子：
+```
+const tekkenCharacter = {
+  player: 'Hwoarang',
+  fightingStyle: 'Tae Kwon Doe',
+  human: true
+};
+```
+上面的代码定义了一个称为kenkenCharacter的Tekken视频游戏角色对象。 它具有三个属性，每个属性都映射到一个特定值。 如果要添加其他属性，例如“ origin”，则可以通过将origin分配给对象来完成：
+```
+tekkenCharacter.origin = 'South Korea';
+```
+这使用点表示法。现在tekkenCharacter对象将包含origin属性。也可以通过执行以下操作以方括号符号添加属性：
+```
+tekkenCharacter['hair color'] = 'dyed orange';
+```
+如果属性中有空格，或者要使用变量来命名属性，则必须使用方括号表示。 在上述情况下，该属性用引号括起来以将其表示为字符串，并将完全按所示添加。 如果不带引号，它将被视为一个变量，并且属性名称将是该变量的任何值。 这是一个带有变量的示例：
+```
+const eyes = 'eye color';
+
+tekkenCharacter[eyes] = 'brown';
+```
+添加所有示例后，该对象将如下所示：
+```
+{
+  player: 'Hwoarang',
+  fightingStyle: 'Tae Kwon Doe',
+  human: true,
+  origin: 'South Korea',
+  'hair color': 'dyed orange',
+  'eye color': 'brown'
+};
+```
+
+**修改嵌套在对象中的对象**
+现在，让我们看一个稍微复杂一点的对象。 对象属性可以嵌套到任意深度，它们的值可以是JavaScript支持的任何类型的数据，包括数组甚至其他对象。 考虑以下：
+```
+let nestedObject = {
+  id: 28802695164,
+  date: 'December 31, 2016',
+  data: {
+    totalUsers: 99,
+    online: 80,
+    onlineStatus: {
+      active: 67,
+      away: 13,
+      busy: 8
+    }
+  }
+```
+nestedObject具有三个属性：id（值是数字），日期（值是字符串）和数据（值是具有嵌套结构的对象）。 尽管结构可能很快变得复杂，但是我们仍然可以使用相同的符号来访问所需的信息。 要将值10分配给嵌套onlineStatus对象的busy属性，我们使用点表示法引用该属性：
+```
+nestedObject.data.onlineStatus.busy = 10;
+```
+
+**用括号表示法访问属性名称**
+括号表示法非常有用，因为有时对象属性在运行时之前是未知的，或者我们需要以更动态的方式访问它们。
+```
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+
+function checkInventory(scannedItem) {
+  return foods[scannedItem];
+}
+console.log(checkInventory("apples"));
+```
+此代码将评估存储在scannedItem变量中的值（apples），并在foods对象中返回该键的值；如果不存在，则返回undefined。
+
+
+**使用delete关键字删除对象属性**
+简而言之，对象是键值存储，它提供了一种灵活，直观的数据结构方法，并且提供了非常快的查找时间。我们已经添加和修改了对象的键值对。在这里，我们将看到如何从对象中删除键值对。
+让我们最后一次回顾一下我们的食品对象示例。 如果我们想删除apples密钥，可以使用如下的delete关键字将其删除：
+```
+delete foods.apples;
+```
+
+
+**检查对象是否具有属性**
+现在我们可以从对象中添加，修改和删除键。 但是，如果我们只是想知道某个对象是否具有特定属性该怎么办？JavaScript为我们提供了两种不同的方法。 一种使用hasOwnProperty（）方法，另一种使用in关键字。 如果我们有一个对象用户，其属性为Alan，则可以通过以下两种方式之一检查其是否存在：
+```
+users.hasOwnProperty('Alan');
+'Alan' in users;
+// both return true
+```
+
+
+**使用for ... in语句遍历对象的键**
+有时您可能需要遍历对象内的所有键。 这需要JavaScript中称为for ... in语句的特定语法。 对于我们的用户对象，这可能类似于：
+```
+for (let user in users) {
+  console.log(user);
+}
+
+// logs:
+Alan
+Jeff
+Sarah
+Ryan
+```
+在此语句中，我们定义了一个变量user，正如您所看到的，该变量在每次迭代过程中都被重置为该对象的每个键，因为该语句在对象中循环，从而将每个用户的名称打印到控制台。 
+注意：对象不像数组那样维护存储键的顺序。 因此，在引用或访问键时，键在对象上的位置或其出现的相对顺序就无关紧要。
+
+
+**使用Object.keys（）生成所有对象键的数组**
+我们还可以使用Object.keys（）方法生成一个数组，该数组包含存储在对象中的所有键。传入一个对象作为参数，这将返回一个带有字符串的数组，该字符串表示对象中的每个属性。同样，数组中的条目没有特定的顺序。
+
+现在，您已经了解了JavaScript对象的所有基本操作。您可以添加，修改和删除键值对，检查键是否存在，以及遍历对象中的所有键。随着您继续学习JavaScript，您将看到对象的更多用途。此外，课程“编码面试准备”部分中的“数据结构”课程还涵盖了ES6 Map和Set对象，这两个对象与普通对象相似，但提供了一些附加功能。现在，您已经了解了数组和对象的基础知识，您已经做好充分准备，可以开始使用JavaScript解决更复杂的问题！
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
