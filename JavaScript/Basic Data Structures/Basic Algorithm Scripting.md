@@ -64,6 +64,69 @@ function factorialize(num) {
 }
 ```
 
+
 **查找字符串中最长的单词**
+```
+function findLongestWordLength(str) {
+  var arr = str.split(' ');
+  var longer = 0;
+  for(let i=0;i<arr.length;i++){
+    if(arr[i].length>=longer){
+       longer=arr[i].length;
+    }else{
+      longer=longer;
+    }
+  }
+ return longer
+}
+
+findLongestWordLength("The quick brown fox jumped over the lazy dog");  //logs:6
+```
+
+
+**返回数组中的最大数字**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
