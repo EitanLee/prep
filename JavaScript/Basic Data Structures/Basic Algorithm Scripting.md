@@ -84,7 +84,8 @@ findLongestWordLength("The quick brown fox jumped over the lazy dog");  //logs:6
 ```
 
 
-**返回数组中的最大数字**
+**返回数组中的最大数字的数组**
+
 
 
 
