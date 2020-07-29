@@ -1,4 +1,4 @@
-###函数式编程（Functional programming）
+### 函数式编程（Functional programming）
 
 函数式编程是一种编程风格，其中解决方案是简单的隔离函数，而函数范围之外没有任何副作用。
 
