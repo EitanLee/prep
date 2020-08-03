@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navbar</title>
+    <style>
+        li{
+            list-style: none;
+        }
+        .list{
+            display: none;
+        }
+        .doe:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" class="doe">客户服务</a></li>
+            <ul class="list">
+            <li><a href="#">商业场景</a></li>
+            <li><a href="#">企业直达</a></li>
+            <li><a href="#">可达商城</a></li>
+            <li><a href="#">礼品购买</a></li>
+            </ul>
+        </ul>
+    </nav>
+    <script>
+        var doe = document.querySelector('.doe');
+        var list = document.querySelector('.list');
+        window.onload=function(){
+            doe.addEventListener('mouseover',function(){
+                list.style.display="block";
+            })
+            var items = list.children;
+            console.log(items);
+            list.addEventListener('mouseout',function(){
+                list.style.display="none";
+            })
+            for(let i=0;i<items.length;i++){
+                items[i].addEventListener('mouseover',function(){
+                list.style.display="block";
+            });
+                items[i].addEventListener('mouseout',function(){
+                list.style.display="none";
+            })}
+        }
+    </script>
+</body>
+</html>
