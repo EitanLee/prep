@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue基础</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="start">
+        {{message}} {{name}}
+    </div>
+    <!-- 内置的v-命令 -->
+    <div id="app">
+        <span v-bind:title="message2">
+            鼠标悬停几秒查看绑定的提示信息
+        </span>
+    </div>
+    <!-- 控制元素显示 -->
+    <div id="app2">
+        <p v-if="seen">你在桥上看风景</p>
+    </div>
+    <script>
+        var start = new Vue({
+            el:'#start',
+            data:{
+                message:"Hello Vue!",
+                name:"fighting"
+            }
+        })
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message2:"今晚月亮真好看" + new Date().toLocaleString()
+            }
+        })
+        //控制元素显示
+        var app2 = new Vue({
+            el:'#app2',
+            data:{
+                seen:true,
+            }
+        })
+    </script>
+
+
+    
+</body>
+</html>
