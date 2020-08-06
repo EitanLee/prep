@@ -1,3 +1,36 @@
+# 结构标签
+**其实就是有意义的div标签**
+article 定义文章
+header 定义页面或区域的头部
+nav 定义导航链接
+section 定义一个区域
+aside  页面的侧边栏
+footer 底部
+dialog 对话框 类似微信
+
+外层:header、section、footer 内层:article、aside、nav、figure || div
+# 多媒体标签
+video 视频
+
+audio 音频
+
+source 定义媒体资源
+
+canvas 绘图
+
+embed  定义外部可交互内容或插件,如flash
+
+# web应用标签
+状态标签
+meter 显示一个能量条,如气压 电量
+progress 显示一个进度条 可以内部滚动
+
+列表标签
+datalist  可以输入匹配的下拉列表
+
+details  展开内容标签
+
+oninput 可以监听文本框变化
 ### 链接（a标签）
 - a标签也可以用于创建内部链接，以跳转到网页中的不同部分。
 ```
@@ -91,3 +124,24 @@ form标签用于提交数据,**action**指定提交的地址,button标签的subm
 <input type="radio" name="test-name" checked>
 ```
 <input type="radio" name="test-name" checked>
+
+### input标签
+type="email" 在移动端会让用户键盘变成email格式
+type="tel"   在移动端会让用户键盘变成输入手机号样式
+type="number" 只能输入数字 移动端变成数字符号键盘
+type="date"  选取输入年月日
+type="month"  选取年月
+type="time"   选取小时分钟
+
+pc端
+type="range" 可以设置最大值最小值的滚动条
+
+### form标签
+
+autocomplete属性  记住用户的输入
+autofocus  自动获得焦点  autofocus="autofocus"
+required   要求必须填写该字段
+
+### script
+defer属性 脚本等页面构建完成后执行
+async属性 脚本异步执行
